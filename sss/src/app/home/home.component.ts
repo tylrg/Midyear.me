@@ -19,4 +19,13 @@ export class HomeComponent implements OnInit {
     console.log(code);
   }
 
+  findHome(){
+    let url = this.document.location.href;
+    console.log(url);
+    let index = url.indexOf("?code=");
+    index = index + 6;
+    let code = url.substring(index);
+    this.document.getElementById("tag").innerHTML=code;
+  }
+
 }
