@@ -10,22 +10,17 @@ export class HomeComponent implements OnInit {
 
   constructor(@Inject(DOCUMENT) private document: Document) { }
 
+  code: string;
   ngOnInit() {
-    let url=this.document.location.href;
-    console.log(url);
-    let index = url.indexOf("?code="); 
-    index = index + 6;
-    let code = url.substring(index);
-    console.log(code);
+  
   }
 
   findHome(){
     let url = this.document.location.href;
-    console.log(url);
     let index = url.indexOf("?code=");
     index = index + 6;
-    let code = url.substring(index);
-    this.document.getElementById("tag").innerHTML=code;
+    this.code = url.substring(index);
+    this.document.getElementById("tag").innerHTML=this.code;
   }
 
 }
