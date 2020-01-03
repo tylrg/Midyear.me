@@ -5,11 +5,11 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class GetTopService {
-  configUrl = 'https://accounts.spotify.com/authorize?client_id=f2143b027e744a7eb3dabfee5183de1e&response_type=code&redirect_uri=http://localhost:4200';
+  baseUrl = 'https://accounts.spotify.com/authorize?client_id=f2143b027e744a7eb3dabfee5183de1e&response_type=code&redirect_uri=http://localhost:4200';
 ;
   constructor(private http: HttpClient) { }
 
-  getConfig() {
-    return this.http.get(this.configUrl);
+  getBase() {
+    return this.http.get(this.baseUrl);
   }
 }
