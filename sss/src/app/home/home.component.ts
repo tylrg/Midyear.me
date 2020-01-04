@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
 
   other(){
     console.log("Being Called other");
-    this.top.getConfig()// clone the data object, using its known Config shape
+    this.top.getBase()// clone the data object, using its known Config shape
       .subscribe()
   }
 
