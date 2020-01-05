@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { GetTopService } from '../get-top.service';
+import { AuthorizeService } from '../authorize';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +9,7 @@ import { GetTopService } from '../get-top.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(@Inject(DOCUMENT) private document: Document, private top: GetTopService) { }
+  constructor(@Inject(DOCUMENT) private document: Document, private top: AuthorizeService) { }
 
   code: string;
   ngOnInit() {
@@ -25,9 +25,13 @@ export class HomeComponent implements OnInit {
   }
 
   other(){
-    console.log("Being Called other");
-    this.top.getBase()// clone the data object, using its known Config shape
-      .subscribe()
+    this.top.getBase();
+
   }
 
+
+  
+  clear(){
+    console.clear();
+  }
 }
