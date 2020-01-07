@@ -5,10 +5,16 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AuthorizeService {
-  baseUrl = 'https://accounts.spotify.com/authorize?client_id=f2143b027e744a7eb3dabfee5183de1e&response_type=code&redirect_uri=http://localhost:4200';
+  baseUrl = 'https://accounts.spotify.com/authorize?';
+  clientId ='?client_id=f2143b027e744a7eb3dabfee5183de1e';
+  response_type ='&response_type=token';
+  redirect_uri='&redirect_uri=http://localhost:4200';
+  assembledUrl=this.baseUrl+this.clientId+this.response_type+this.redirect_uri;
+
   constructor(private http: HttpClient) { }
 
   getBase() {
+    console.log(this.assembledUrl)
     return this.http.get(this.baseUrl).subscribe((res) => {
       let resSTR = JSON.stringify(res);
       let resJSON = JSON.parse(resSTR);
