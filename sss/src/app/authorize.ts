@@ -15,11 +15,7 @@ export class AuthorizeService {
 
   getBase() {
     console.log(this.assembledUrl)
-    return this.http.get(this.baseUrl).subscribe((res) => {
-      let resSTR = JSON.stringify(res);
-      let resJSON = JSON.parse(resSTR);
-      console.log(resJSON._body);
-    })
+    return this.http.get(this.baseUrl,{responseType: 'json'});
     }
 
 }
