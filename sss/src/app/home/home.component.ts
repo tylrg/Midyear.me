@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
     let endIndex =url.indexOf("&token_type")
     this.token = url.substring(index,endIndex);
     this.top.setToken(this.token);
-    console.log(this.token);
+    //console.log(this.token);
   }
 
   
@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
 
   postAndLook(){
     this.top.printToken();
-    this.top.getTop(this.time,this.type).subscribe((res)=> {
+    this.top.getTop(this.type,this.time).subscribe((res)=> {
       //let rJ = JSON.parse(res);
       //let rS = JSON.stringify(rJ);
       //console.log(rS);

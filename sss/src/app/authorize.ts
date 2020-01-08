@@ -27,7 +27,8 @@ export class AuthorizeService {
   setToken(s){
     this.token=s;
     httpOptions.headers =
-      httpOptions.headers.set('Authorization', 'Bearer {'+this.token+);
+      httpOptions.headers.set('Authorization', 'Bearer {'+this.token+"}");
+      console.log(this.token);
   }
 
   printToken(){
