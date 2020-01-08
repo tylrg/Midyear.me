@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders,HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +11,27 @@ export class AuthorizeService {
   redirect_uri='&redirect_uri=http://localhost:4200';
   assembledUrl=this.baseUrl+this.clientId+this.response_type+this.redirect_uri;
 
+  token = "";
+  topUrl="https://api.spotify.com/v1/me/top/artists?limit=50&time_limit=long_term";
+
+
   constructor(private http: HttpClient) { }
 
   getBase() {
-    console.log(this.assembledUrl)
     return this.http.get(this.baseUrl,{responseType: 'json'});
     }
+
+  setToken(s){
+    this.token=s;
+  }
+
+  printToken(){
+    console.log(this.token);
+  }
+
+  getTopArtists(){
+    return this.http.get(this.topUrl,{responseType: 'json'});
+
+  }
 
 }
