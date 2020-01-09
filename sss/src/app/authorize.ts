@@ -13,32 +13,32 @@ const httpOptions = {
 export class AuthorizeService {
   // baseUrl = 'https://accounts.spotify.com/authorize?';
   // clientId ='?client_id=f2143b027e744a7eb3dabfee5183de1e';
-  // response_type ='&response_type=token';
+  // response_type ='&response_type=code';
   // redirect_uri='&redirect_uri=http://localhost:4200';
   // assembledUrl=this.baseUrl+this.clientId+this.response_type+this.redirect_uri;
 
-  token = "";
-  topUrl="https://api.spotify.com/v1/me/top/";
-  query="?limit=50&time_limit=";
+  code = "";
+  // topUrl="https://api.spotify.com/v1/me/top/";
+  // query="?limit=50&time_limit=";
 
   
 
   constructor(private http: HttpClient) { }
-  setToken(s){
-    this.token=s;
+  setCode(s){
+    this.code=s;
     httpOptions.headers =
-      httpOptions.headers.set('Authorization', 'Bearer {'+this.token+"}");
-      console.log(this.token);
+      httpOptions.headers.set('Authorization', 'Bearer {'+this.code+"}");
+      console.log(this.code);
   }
 
-  printToken(){
-    console.log(this.token);
+  printCode(){
+    console.log(this.code);
   }
 
   getTop(searchType,searchTerm){
-    let assembledUrl = this.topUrl+searchType+this.query+searchTerm;
-    console.log(assembledUrl);
-    return this.http.get(assembledUrl,httpOptions);
+    //let assembledUrl = this.topUrl+searchType+this.query+searchTerm;
+    //console.log(assembledUrl);
+    //return this.http.get(assembledUrl,httpOptions);
   }
 
 }

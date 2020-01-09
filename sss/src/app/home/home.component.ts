@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
 
   constructor(@Inject(DOCUMENT) private document: Document, private top: AuthorizeService) { }
 
-  token: string;
+  code: string;
   type: string;
   time: string;
   ngOnInit() {
@@ -20,29 +20,25 @@ export class HomeComponent implements OnInit {
   }
   findHome(){
     let url = this.document.location.href;
-    let index = url.indexOf("#access_token=");
+    let index = url.indexOf("?code=");
     if(index===-1){
-      this.token="";
-      console.log(this.token);
+      this.code="";
+      console.log(this.code);
       return;
     }
-    index=index+14;
-    let endIndex =url.indexOf("&token_type")
-    this.token = url.substring(index,endIndex);
-    this.top.setToken(this.token);
-    //console.log(this.token);
+    index=index+6;
+    this.code = url.substring(index);
+    this.top.setCode(this.code);
+    //console.log(this.code);
   }
 
   
 
 
   postAndLook(){
-    this.top.printToken();
-    this.top.getTop(this.type,this.time).subscribe((res)=> {
-      //let rJ = JSON.parse(res);
-      //let rS = JSON.stringify(rJ);
-      //console.log(rS);
-    })
+    this.top.printCode();
+    // this.top.getTop(this.type,this.time).subscribe((res)=> {
+    // })
   }
 
   //change the values for paramters
