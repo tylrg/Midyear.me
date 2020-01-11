@@ -29,17 +29,14 @@ export class HomeComponent implements OnInit {
     index=index+6;
     this.code = url.substring(index);
     this.top.setCode(this.code);
-    //console.log(this.code);
   }
-
-  
-
 
   postAndLook(){
     this.top.printCode();
     // this.top.getTop(this.type,this.time).subscribe((res)=> {
     // })
   }
+
 
   //change the values for paramters
   swapType(){
