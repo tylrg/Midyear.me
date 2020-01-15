@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { AuthorizeService } from '../authorize';
+import { TestService } from '../test.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ import { AuthorizeService } from '../authorize';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(@Inject(DOCUMENT) private document: Document, private top: AuthorizeService) { }
+  constructor(@Inject(DOCUMENT) private document: Document, private top: AuthorizeService, private test: TestService) { }
 
   code: string;
   type: string;
@@ -35,6 +36,10 @@ export class HomeComponent implements OnInit {
     this.top.printCode();
     // this.top.getTop(this.type,this.time).subscribe((res)=> {
     // })
+  }
+
+  testPost(){
+    this.test.
   }
 
 
