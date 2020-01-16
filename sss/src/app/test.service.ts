@@ -11,6 +11,11 @@ export class TestService {
   constructor(private http: HttpClient) { }
 
   add(){
+
+  }
+
+  getTest(){
+    
   }
 
 }
