@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
   }
 
   testPost(){
-    this.test.
+
   }
 
 
