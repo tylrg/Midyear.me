@@ -38,8 +38,10 @@ export class HomeComponent implements OnInit {
     // })
   }
 
-  testPost(){
-    this.test.
+  testGet(){
+    this.test.getTest().subscribe( res => {
+      console.log(res.toString);
+    });
   }
 
 

@@ -15,7 +15,7 @@ export class TestService {
   }
 
   getTest(){
-    
+    return this.http.get('localhost:3000/comments');
   }
 
 }
