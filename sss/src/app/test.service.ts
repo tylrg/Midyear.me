@@ -15,7 +15,11 @@ export class TestService {
   }
 
   getTest(){
-    return this.http.get('localhost:3000/comments');
+    return this.http.get('http://localhost:3000/posts');
+  }
+
+  getOwn(){
+    return this.http.get('http://localhost:8000/testJson');
   }
 
 }

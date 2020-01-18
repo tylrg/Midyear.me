@@ -40,8 +40,18 @@ export class HomeComponent implements OnInit {
 
   testGet(){
     this.test.getTest().subscribe( res => {
-      console.log(res.toString);
+      console.log(res);
+      console.log(res[1]);
+      //let resJ = JSON.stringify(res);
+      //console.log(resJ);
     });
+  }
+
+
+  testOwn(){
+    this.test.getOwn().subscribe(res =>{
+      console.log(res);
+    })
   }
 
 
