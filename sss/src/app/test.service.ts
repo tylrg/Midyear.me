@@ -22,4 +22,8 @@ export class TestService {
     return this.http.get('http://localhost:8000/testJson');
   }
 
+  postOwn(){
+    return this.http.post('http://localhost:8000/testPost',null);
+  }
+
 }
