@@ -34,8 +34,6 @@ export class HomeComponent implements OnInit {
 
   postAndLook(){
     this.top.printCode();
-    // this.top.getTop(this.type,this.time).subscribe((res)=> {
-    // })
   }
 
   testGet(){
