@@ -55,7 +55,7 @@ export class HomeComponent implements OnInit {
   }
 
   testOwnPost(){
-    this.test.postOwn().subscribe(res =>{
+    this.test.postOwn(this.code).subscribe(res =>{
       console.log(res);
     });
   }

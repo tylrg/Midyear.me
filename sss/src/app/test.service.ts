@@ -1,12 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Access-Control-Allow-Origin': '*'
+    //'Authorization': 'my-auth-token'
+  })
+};
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class TestService {
 
-  baseUrl="www.google.com";
+  //baseUrl="www.google.com";
 
   constructor(private http: HttpClient) { }
 
@@ -22,8 +31,11 @@ export class TestService {
     return this.http.get('http://localhost:8000/testJson');
   }
 
-  postOwn(){
-    return this.http.post('http://localhost:8000/testPost',null);
+  postOwn(c){
+    let body = {
+      code: c
+    };
+    return this.http.post('http://localhost:8000/testPost',body,httpOptions);
   }
 
 }
