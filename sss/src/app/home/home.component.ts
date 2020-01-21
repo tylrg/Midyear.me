@@ -40,8 +40,6 @@ export class HomeComponent implements OnInit {
     this.test.getTest().subscribe( res => {
       console.log(res);
       console.log(res[1]);
-      //let resJ = JSON.stringify(res);
-      //console.log(resJ);
     });
   }
 
