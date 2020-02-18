@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/x-www-form-urlencoded',
+    'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*'
   })
 };
@@ -19,8 +19,7 @@ export class TestService {
   constructor(private http: HttpClient) { }
 
   boomerang(code){
-    let body = new URLSearchParams();
-    body.set('Code', code);
+    let body = {"Code": "Hey"};
     return this.http.post('https://peaceful-ravine-99525.herokuapp.com/boomerang',body,httpOptions);
   }
 

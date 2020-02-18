@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   type: string;
   time: string;
   ngOnInit() {
-    console.log("SPOTIFY STATS SITE VERSION 0.0.5");
+    console.log("SPOTIFY STATS SITE VERSION 0.0.7");
     this.type="artists";
     this.time="short_term";
   }
