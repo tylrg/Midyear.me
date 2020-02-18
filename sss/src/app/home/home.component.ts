@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   type: string;
   time: string;
   ngOnInit() {
+    console.log("SPOTIFY STATS SITE VERSION 0.0.5");
     this.type="artists";
     this.time="short_term";
   }
@@ -36,28 +37,15 @@ export class HomeComponent implements OnInit {
     this.top.printCode();
   }
 
-  testGet(){
-    this.test.getTest().subscribe( res => {
-      console.log(res);
-      console.log(res[1]);
-    });
-  }
-
-
-  testOwn(){
-    this.test.getOwn().subscribe(res =>{
-      console.log(res);
-    });
-  }
-
   testOwnPost(){
-    this.test.postOwn(this.code).subscribe(res =>{
+    this.test.boomerang(this.code).subscribe(res =>{
       console.log(res);
     });
   }
 
 
   //change the values for paramters
+  //#region Time and other params
   swapType(){
     if(this.type==="artists"){this.type="tracks";}
     else{this.type="artists";}
@@ -78,4 +66,5 @@ export class HomeComponent implements OnInit {
   clear(){
     console.clear();
   }
+  //#endregion
 }

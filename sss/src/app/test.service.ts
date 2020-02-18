@@ -3,9 +3,8 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type':  'application/json',
+    'Content-Type': 'application/x-www-form-urlencoded',
     'Access-Control-Allow-Origin': '*'
-    //'Authorization': 'my-auth-token'
   })
 };
 
@@ -19,23 +18,10 @@ export class TestService {
 
   constructor(private http: HttpClient) { }
 
-  add(){
-
-  }
-
-  getTest(){
-    return this.http.get('http://localhost:3000/posts');
-  }
-
-  getOwn(){
-    return this.http.get('http://localhost:8000/testJson');
-  }
-
-  postOwn(c){
-    let body = {
-      code: c
-    };
-    return this.http.post('http://localhost:8000/testPost',body,httpOptions);
+  boomerang(code){
+    let body = new URLSearchParams();
+    body.set('Code', code);
+    return this.http.post('https://peaceful-ravine-99525.herokuapp.com/boomerang',body,httpOptions);
   }
 
 }
