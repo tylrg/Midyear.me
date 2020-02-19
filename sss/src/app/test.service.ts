@@ -19,8 +19,22 @@ export class TestService {
   constructor(private http: HttpClient) { }
 
   boomerang(code){
-    let body = {"Code": "Hey"};
+    let body = {"Code": code};
     return this.http.post('https://peaceful-ravine-99525.herokuapp.com/boomerang',body,httpOptions);
   }
 
+  getToken(code){
+    let body = {"Code": code};
+    return this.http.post('https://peaceful-ravine-99525.herokuapp.com/token', body, httpOptions);
+  }
+
+
+  getTest(access,type,length){
+    const getHeaders = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer "+access,
+      })
+    };
+    return this.http.get('https://api.spotify.com/v1/me/top/'+type,getHeaders)
+  }
 }

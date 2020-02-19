@@ -15,8 +15,10 @@ export class HomeComponent implements OnInit {
   code: string;
   type: string;
   time: string;
+  access_token: string;
+  refresh_token: string;
   ngOnInit() {
-    console.log("SPOTIFY STATS SITE VERSION 0.0.7");
+    console.log("SPOTIFY STATS SITE VERSION 0.0.13");
     this.type="artists";
     this.time="short_term";
   }
@@ -43,7 +45,23 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  testGetToken(){
+    this.test.getToken(this.code).subscribe(res =>{
+      console.log(res);
+      let rString = JSON.stringify(res);
+      let returnedValue = JSON.parse(rString);
+      this.access_token = returnedValue.access_token;
+      this.refresh_token = returnedValue.refresh_token;
+      console.log("Access Token: "+this.access_token);
+      console.log("Refresh Token: "+this.refresh_token);
+    });
+  }
 
+  getArtistTest(){
+    this.test.getTest(this.access_token,this.type,this.time).subscribe(res =>{
+      console.log(res);
+    });
+  }
   //change the values for paramters
   //#region Time and other params
   swapType(){
