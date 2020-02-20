@@ -14,11 +14,15 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle'
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TrackComponent } from './track/track.component';
+import { ArtistComponent } from './artist/artist.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    TrackComponent,
+    ArtistComponent
   ],
   imports: [
     BrowserModule,
