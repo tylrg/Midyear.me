@@ -12,13 +12,19 @@ export class HomeComponent implements OnInit {
 
   constructor(@Inject(DOCUMENT) private document: Document, private top: AuthorizeService, private test: TestService) { }
 
+  artists = [
+    { "name": "Artist", "link": "http://www.midear.me", "image": "http://www.midear.me", "popularity": "0", "followers": "0.0"},
+  ]; 
+  // artists = []; 
+  tracks = [];
+
   code: string;
   type: string;
   time: string;
   access_token: string;
   refresh_token: string;
   ngOnInit() {
-    console.log("SPOTIFY STATS SITE VERSION 0.0.13");
+    console.log("SPOTIFY STATS SITE VERSION 0.0.35");
     this.type="artists";
     this.time="short_term";
   }
@@ -47,7 +53,6 @@ export class HomeComponent implements OnInit {
 
   testGetToken(){
     this.test.getToken(this.code).subscribe(res =>{
-      console.log(res);
       let rString = JSON.stringify(res);
       let returnedValue = JSON.parse(rString);
       this.access_token = returnedValue.access_token;
@@ -57,11 +62,37 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  getArtistTest(){
-    this.test.getTest(this.access_token,this.type,this.time).subscribe(res =>{
-      console.log(res);
+  getArtists(){
+    this.artists = [];
+    this.test.getInfoAPI(this.access_token,this.type,this.time).subscribe(res =>{
+      let o = JSON.stringify(res);
+      let resList = JSON.parse(o);
+      let iter = resList.items;
+      for (let x of iter){
+        let artist = { "name": x.name, "link": x.external_urls.spotify, "image": x.images[0], "popularity": x.popularity, "followers": x.followers.total }; 
+        this.artists.push(artist);
+      }
+      console.log(this.artists);
     });
   }
+
+  getTracks(){
+    this.tracks = [];
+    this.test.getInfoAPI(this.access_token, this.type, this.time).subscribe(res => {
+      //console.log(res);
+      let o = JSON.stringify(res);
+      let resList = JSON.parse(o);
+      let iter = resList.items;
+      for (let x of iter) {
+        let track = { "name": x.name, "artists": x.artists[0].name, "albumName":x.album.name, "albumImage": x.album.images[0], "link": x.external_urls.spotify, "popularity": x.popularity };
+        this.tracks.push(track);
+        //console.log(x);
+      }
+      console.log(this.tracks);
+    });
+  }
+
+
   //change the values for paramters
   //#region Time and other params
   swapType(){

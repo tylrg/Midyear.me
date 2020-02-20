@@ -29,12 +29,15 @@ export class TestService {
   }
 
 
-  getTest(access,type,length){
+  getInfoAPI(access,type,time){
     const getHeaders = {
       headers: new HttpHeaders({
         'Authorization': "Bearer "+access,
       })
     };
-    return this.http.get('https://api.spotify.com/v1/me/top/'+type,getHeaders)
+    let limit='?limit=50';
+    let timeString='&time_range='+time;
+    return this.http.get('https://api.spotify.com/v1/me/top/'+type+limit+timeString,getHeaders)
   }
+
 }
