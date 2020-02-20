@@ -35,10 +35,4 @@ export class AuthorizeService {
     console.log(this.code);
   }
 
-  getTop(searchType,searchTerm){
-    //let assembledUrl = this.topUrl+searchType+this.query+searchTerm;
-    //console.log(assembledUrl);
-    //return this.http.get(assembledUrl,httpOptions);
-  }
-
 }

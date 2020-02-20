@@ -1,56 +1,54 @@
-<h3>Home Component</h3>
-<h4>Home</h4><a href="http://www.midyear.me/"><button><i class="material-icons">home</i></button></a>
-<br>
-<br>
-<h4>Redirect</h4><a href="https://accounts.spotify.com/authorize?client_id=f2143b027e744a7eb3dabfee5183de1e&response_type=code&redirect_uri=http://www.midyear.me&scope=user-top-read"><button><i class="material-icons">swap_horiz</i></button></a>
-<br>
-<br>
-<h4>Log Code</h4><button mat-raised-button (click)="findHome()"><i class="material-icons">find_replace</i></button>
-<br>
-<br>
-<!-- <h4>Node Post Return Params</h4><button mat-raised-button (click)="testOwnPost()"><i class="material-icons">motorcycle</i></button>
-<br>
-<br> -->
-<h4>GET TOKEN</h4><button mat-raised-button (click)="testGetToken()"><i class="material-icons">monetization_on</i></button>
-<br>
-<br>
-<h4>GET Artists</h4><button mat-raised-button (click)="getArtists()"><i class="material-icons">people</i></button>
-<br>
-<br>
-<h4>GET Track</h4><button mat-raised-button (click)="getTracks()"><i class="material-icons">music_note</i></button>
-<br>
-<br>
-<h4>Home</h4><button mat-raised-button (click)="clear()"><i class="material-icons">delete_forever</i></button>
+<div id="login" class="log">
+    <a
+        href="https://accounts.spotify.com/authorize?client_id=f2143b027e744a7eb3dabfee5183de1e&response_type=code&redirect_uri=http://www.midyear.me&scope=user-top-read"><i class="material-icons">person</i></a>
+</div>
+<div id="logout" class="log">
+    <i class="material-icons">exit_to_app</i>
+</div>
 
-<mat-toolbar color = "primary">
+<div class="header">
+    <a href="http://www.midyear.me/"><h4><h1>MIDYEAR.me</h1></h4></a>
+</div>
+
+<mat-toolbar>
     <mat-toolbar-row>
-        <button mat-raised-button (click)="testGetToken()"><i class="material-icons">monetization_on</i></button>
-        <button mat-raised-button (click)="getArtists()"><i class="material-icons">people</i></button>
-        <button mat-raised-button (click)="getTracks()"><i class="material-icons">music_note</i></button>
-        <button mat-raised-button (click)="clear()"><i class="material-icons">delete_forever</i></button>
+        <mat-button-toggle-group>
+            <mat-button-toggle mat-raised-button (click)="getArtists()"><i class="material-icons">people</i></mat-button-toggle>
+            <mat-button-toggle mat-raised-button (click)="getTracks()"><i class="material-icons">music_note</i></mat-button-toggle>
+        </mat-button-toggle-group>
+        <mat-button-toggle-group value="short">
+            <mat-button-toggle value="short" mat-raised-button (click)="setShort()"><i class="material-icons">arrow_right</i>
+            </mat-button-toggle>
+            <mat-button-toggle mat-raised-button (click)="setMedium()"><i class="material-icons">chevron_right</i>
+            </mat-button-toggle>
+            <mat-button-toggle mat-raised-button (click)="setLong()"><i class="material-icons">double_arrow</i>
+            </mat-button-toggle>
+        </mat-button-toggle-group>
     </mat-toolbar-row>
 </mat-toolbar>
 
-<h2>Change Type</h2>
-<button mat-raised-button (click)="swapType()">
-    <i class="material-icons">music_note</i>
-    <i class="material-icons">swap_horiz</i>
-    <i class="material-icons">recent_actors</i>
-</button>
-
-<h2>Change Term</h2>
-
-<button mat-raised-button (click)="setShort()"><i class="material-icons">arrow_right</i></button>
-<button mat-raised-button (click)="setMedium()"><i class="material-icons">chevron_right</i></button>
-<button mat-raised-button (click)="setLong()"><i class="material-icons">double_arrow</i></button>
-
 <br><br><br>
 
-<ul *ngFor = "let element of artists">
-    <h6>{{element.name}}</h6>
-    <!-- <h6>{{element.link}}</h6> -->
-    <a href={{element.link}} target="_blank"><img class = "images" src={{element.image.url}}/></a>
-    <!-- <h6>{{element.image.url}}</h6> -->
-    <h6>Popularity: {{element.popularity}} Followers: {{element.followers}}</h6>
-</ul>
+<div id="artistList">
+    <h2>Your Top Artists</h2>
+    <ul *ngFor="let element of artists">
+        <h6>{{element.name}}</h6>
+        <a href={{element.link}} target="_blank"><img class="images" src={{element.image.url}} /></a>
+        <h6>Popularity: {{element.popularity}} Followers: {{element.followers}}</h6>
+        <mat-divider></mat-divider>
+    </ul>
+</div>
+
+<div id="trackList">
+    <h2>Your Top Tracks</h2>
+    <ul *ngFor="let element of tracks">
+        <h5>{{element.name}}</h5>
+        <h6>{{element.artists}}</h6>
+        <h6>{{element.albumName}}</h6>
+        <a href={{element.link}} target="_blank"><img class="images" src={{element.albumImage.url}} /></a>
+        <h6>Popularity: {{element.popularity}}</h6>
+        <mat-divider></mat-divider>
+    </ul>
+</div>
+
 

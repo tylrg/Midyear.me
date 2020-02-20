@@ -9,6 +9,8 @@ import { HomeComponent } from './home/home.component';
 
 import {MatToolbarModule} from '@angular/material/toolbar'
 import {MatButtonModule} from '@angular/material/button'
+import {MatDividerModule} from '@angular/material/divider'
+import {MatButtonToggleModule} from '@angular/material/button-toggle'
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -24,7 +26,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDividerModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

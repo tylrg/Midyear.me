@@ -24,9 +24,11 @@ export class HomeComponent implements OnInit {
   access_token: string;
   refresh_token: string;
   ngOnInit() {
-    console.log("SPOTIFY STATS SITE VERSION 0.0.35");
+    this.document.getElementById("logout").style.display = "none";
+    console.log("SPOTIFY STATS SITE VERSION 0.0.51");
     this.type="artists";
     this.time="short_term";
+    this.findHome();
   }
   findHome(){
     let url = this.document.location.href;
@@ -39,6 +41,9 @@ export class HomeComponent implements OnInit {
     index=index+6;
     this.code = url.substring(index);
     this.top.setCode(this.code);
+    this.document.getElementById("login").style.display = "none";
+    this.document.getElementById("logout").style.display = "block";
+    this.testGetToken();
   }
 
   postAndLook(){
@@ -64,6 +69,8 @@ export class HomeComponent implements OnInit {
 
   getArtists(){
     this.artists = [];
+    this.type="artists";
+    this.document.getElementById("trackList").style.display = "none";
     this.test.getInfoAPI(this.access_token,this.type,this.time).subscribe(res =>{
       let o = JSON.stringify(res);
       let resList = JSON.parse(o);
@@ -74,10 +81,13 @@ export class HomeComponent implements OnInit {
       }
       console.log(this.artists);
     });
+    this.document.getElementById("artistList").style.display = "block";
   }
 
   getTracks(){
     this.tracks = [];
+    this.type="tracks";
+    this.document.getElementById("artistList").style.display = "none";
     this.test.getInfoAPI(this.access_token, this.type, this.time).subscribe(res => {
       //console.log(res);
       let o = JSON.stringify(res);
@@ -90,6 +100,8 @@ export class HomeComponent implements OnInit {
       }
       console.log(this.tracks);
     });
+    this.document.getElementById("trackList").style.display = "block";
+    
   }
 
 

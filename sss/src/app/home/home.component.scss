@@ -1,3 +1,27 @@
 .images{
-  max-width: 320px;
+  max-width: 160px;
+}
+
+.log{
+  float:right;
+}
+
+.header{
+  text-align: center;
+}
+
+#artistList{
+  display: none;
+}
+#trackList{
+  display: none;
+}
+
+a:link{
+  color: black;
+  text-decoration: none;
+}
+a:visited{
+  color: black;
+  text-decoration: none;
 }
