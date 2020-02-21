@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-track',
@@ -8,6 +8,21 @@ import { Component, OnInit } from '@angular/core';
 export class TrackComponent implements OnInit {
 
   constructor() { }
+
+  @Input()
+  name: string= "";
+  @Input()
+  artist: string = "";
+  @Input()
+  albumName: string = "";
+  @Input()
+  link: string = "";
+  @Input()
+  albumImage: string = "";
+  @Input()
+  popularity: string = "";
+
+
 
   ngOnInit() {
   }

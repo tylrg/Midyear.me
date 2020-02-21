@@ -11,6 +11,7 @@ import {MatToolbarModule} from '@angular/material/toolbar'
 import {MatButtonModule} from '@angular/material/button'
 import {MatDividerModule} from '@angular/material/divider'
 import {MatButtonToggleModule} from '@angular/material/button-toggle'
+import {MatCardModule} from '@angular/material/card'
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -32,7 +33,8 @@ import { ArtistComponent } from './artist/artist.component';
     MatToolbarModule,
     MatButtonModule,
     MatDividerModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

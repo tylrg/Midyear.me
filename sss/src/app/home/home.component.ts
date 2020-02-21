@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   refresh_token: string;
   ngOnInit() {
     this.document.getElementById("logout").style.display = "none";
-    console.log("SPOTIFY STATS SITE VERSION 0.0.51");
+    console.log("SPOTIFY STATS SITE VERSION 0.0.56");
     this.type="artists";
     this.time="short_term";
     this.findHome();

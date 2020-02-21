@@ -42,11 +42,12 @@
 <div id="trackList">
     <h2>Your Top Tracks</h2>
     <ul *ngFor="let element of tracks">
-        <h5>{{element.name}}</h5>
+        <!-- <h5>{{element.name}}</h5>
         <h6>{{element.artists}}</h6>
         <h6>{{element.albumName}}</h6>
         <a href={{element.link}} target="_blank"><img class="images" src={{element.albumImage.url}} /></a>
-        <h6>Popularity: {{element.popularity}}</h6>
+        <h6>Popularity: {{element.popularity}}</h6> -->
+        <app-track [name]="element.name" [artist]="element.artists" [albumName]="element.albumName" [popularity]="element.popularity" [link]="element.link" [albumImage]="element.albumImage.url"></app-track>
         <mat-divider></mat-divider>
     </ul>
 </div>
