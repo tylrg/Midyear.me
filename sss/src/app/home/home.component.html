@@ -1,6 +1,5 @@
 <div id="login" class="log">
-    <a
-        href="https://accounts.spotify.com/authorize?client_id=f2143b027e744a7eb3dabfee5183de1e&response_type=code&redirect_uri=http://www.midyear.me&scope=user-top-read"><i class="material-icons">person</i></a>
+    <a href="https://accounts.spotify.com/authorize?client_id=f2143b027e744a7eb3dabfee5183de1e&response_type=code&redirect_uri=http://www.midyear.me&scope=user-top-read"><i class="material-icons">person</i></a>
 </div>
 <div id="logout" class="log">
     <i class="material-icons">exit_to_app</i>
@@ -12,8 +11,8 @@
 
 <mat-toolbar>
     <mat-toolbar-row>
-        <mat-button-toggle-group>
-            <mat-button-toggle mat-raised-button (click)="getArtists()"><i class="material-icons">people</i></mat-button-toggle>
+        <mat-button-toggle-group value="artists">
+            <mat-button-toggle value="artists" mat-raised-button (click)="getArtists()"><i class="material-icons">people</i></mat-button-toggle>
             <mat-button-toggle mat-raised-button (click)="getTracks()"><i class="material-icons">music_note</i></mat-button-toggle>
         </mat-button-toggle-group>
         <mat-button-toggle-group value="short">
@@ -32,23 +31,24 @@
 <div id="artistList">
     <h2>Your Top Artists</h2>
     <ul *ngFor="let element of artists">
-        <h6>{{element.name}}</h6>
+        <!-- <h6>{{element.name}}</h6>
         <a href={{element.link}} target="_blank"><img class="images" src={{element.image.url}} /></a>
         <h6>Popularity: {{element.popularity}} Followers: {{element.followers}}</h6>
-        <mat-divider></mat-divider>
+        <mat-divider></mat-divider> -->
+        <app-artist [number]="element.number" [name]="element.name" [followers]="element.followers" [popularity]="element.popularity" [link]="element.link" [image]="element.image.url"></app-artist>
     </ul>
 </div>
 
 <div id="trackList">
     <h2>Your Top Tracks</h2>
-    <ul *ngFor="let element of tracks">
+    <ul id="tracks" *ngFor="let element of tracks">
         <!-- <h5>{{element.name}}</h5>
         <h6>{{element.artists}}</h6>
         <h6>{{element.albumName}}</h6>
         <a href={{element.link}} target="_blank"><img class="images" src={{element.albumImage.url}} /></a>
         <h6>Popularity: {{element.popularity}}</h6> -->
-        <app-track [name]="element.name" [artist]="element.artists" [albumName]="element.albumName" [popularity]="element.popularity" [link]="element.link" [albumImage]="element.albumImage.url"></app-track>
-        <mat-divider></mat-divider>
+        <app-track [number]="element.number" [name]="element.name" [artist]="element.artists" [albumName]="element.albumName" [popularity]="element.popularity" [link]="element.link" [albumImage]="element.albumImage.url"></app-track>
+        <!-- <mat-divider></mat-divider> -->
     </ul>
 </div>
 

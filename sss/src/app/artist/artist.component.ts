@@ -10,6 +10,8 @@ export class ArtistComponent implements OnInit {
   constructor() { }
 
   @Input()
+  number: string = "";
+  @Input()
   name: string = "";
   @Input()
   link: string = "";

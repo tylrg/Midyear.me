@@ -1,4 +1,28 @@
-.images{
-  max-width: 120px;
-  margin-left: 80%;
+// .images{
+//   max-width: 640px;
+//   border-radius: 10px;
+//   width: 50%
+// }
+
+// mat-card{
+//   max-width: 640px;
+//   width: 50%;
+// }
+
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  //background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+img{
+  border-radius: 2px;
+}
+.mat-card-avatar{
+    font-size: 25px;
+    margin-right: -10px;
+    padding-top: 20px;
 }

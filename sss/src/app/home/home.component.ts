@@ -9,13 +9,16 @@ import { TestService } from '../test.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  ngOnInit() {
+      this.document.getElementById("logout").style.display = "none";
+      console.log("SPOTIFY STATS SITE VERSION 0.0.71");
+      this.type="artists";
+      this.time="short_term";
+      this.findHome();
+    }
   constructor(@Inject(DOCUMENT) private document: Document, private top: AuthorizeService, private test: TestService) { }
 
-  artists = [
-    { "name": "Artist", "link": "http://www.midear.me", "image": "http://www.midear.me", "popularity": "0", "followers": "0.0"},
-  ]; 
-  // artists = []; 
+  artists = []; 
   tracks = [];
 
   code: string;
@@ -23,13 +26,7 @@ export class HomeComponent implements OnInit {
   time: string;
   access_token: string;
   refresh_token: string;
-  ngOnInit() {
-    this.document.getElementById("logout").style.display = "none";
-    console.log("SPOTIFY STATS SITE VERSION 0.0.56");
-    this.type="artists";
-    this.time="short_term";
-    this.findHome();
-  }
+  
   findHome(){
     let url = this.document.location.href;
     let index = url.indexOf("?code=");
@@ -75,9 +72,11 @@ export class HomeComponent implements OnInit {
       let o = JSON.stringify(res);
       let resList = JSON.parse(o);
       let iter = resList.items;
+      let i = 1;
       for (let x of iter){
-        let artist = { "name": x.name, "link": x.external_urls.spotify, "image": x.images[0], "popularity": x.popularity, "followers": x.followers.total }; 
+        let artist = { "number":i+".","name": x.name, "link": x.external_urls.spotify, "image": x.images[0], "popularity": x.popularity, "followers": this.numberWithCommas(x.followers.total) }; 
         this.artists.push(artist);
+        i++;
       }
       console.log(this.artists);
     });
@@ -93,9 +92,11 @@ export class HomeComponent implements OnInit {
       let o = JSON.stringify(res);
       let resList = JSON.parse(o);
       let iter = resList.items;
+      let i = 1;
       for (let x of iter) {
-        let track = { "name": x.name, "artists": x.artists[0].name, "albumName":x.album.name, "albumImage": x.album.images[0], "link": x.external_urls.spotify, "popularity": x.popularity };
+        let track = { "number": i + ".","name": x.name, "artists": x.artists[0].name, "albumName":x.album.name, "albumImage": x.album.images[0], "link": x.external_urls.spotify, "popularity": x.popularity };
         this.tracks.push(track);
+        i++;
         //console.log(x);
       }
       console.log(this.tracks);
@@ -111,6 +112,9 @@ export class HomeComponent implements OnInit {
     if(this.type==="artists"){this.type="tracks";}
     else{this.type="artists";}
     console.log(this.type);
+  }
+  numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
   setShort(){
     this.time="short_term";

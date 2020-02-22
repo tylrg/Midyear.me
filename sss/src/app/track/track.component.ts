@@ -8,7 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TrackComponent implements OnInit {
 
   constructor() { }
-
+  @Input()
+  number: string="";
   @Input()
   name: string= "";
   @Input()
