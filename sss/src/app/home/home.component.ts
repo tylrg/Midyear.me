@@ -11,7 +11,7 @@ import { TestService } from '../test.service';
 export class HomeComponent implements OnInit {
   ngOnInit() {
       this.document.getElementById("logout").style.display = "none";
-      console.log("SPOTIFY STATS SITE VERSION 0.0.71");
+      console.log("SPOTIFY STATS SITE VERSION 0.0.73");
       this.type="artists";
       this.time="short_term";
       this.findHome();
@@ -119,14 +119,21 @@ export class HomeComponent implements OnInit {
   setShort(){
     this.time="short_term";
     console.log(this.time);
+    this.updateTime();
   }
   setMedium(){
     this.time="medium_term";
     console.log(this.time);
+    this.updateTime();
   }
   setLong(){
     this.time="long_term";
     console.log(this.time);
+    this.updateTime();
+  }
+  updateTime(){
+    if(this.type==="artists"){this.getArtists();}
+    else if(this.type="tracks"){this.getTracks();}
   }
   clear(){
     console.clear();
