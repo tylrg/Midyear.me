@@ -14,6 +14,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle'
 import {MatCardModule} from '@angular/material/card'
 
 
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TrackComponent } from './track/track.component';
 import { ArtistComponent } from './artist/artist.component';
@@ -34,7 +35,7 @@ import { ArtistComponent } from './artist/artist.component';
     MatButtonModule,
     MatDividerModule,
     MatButtonToggleModule,
-    MatCardModule
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

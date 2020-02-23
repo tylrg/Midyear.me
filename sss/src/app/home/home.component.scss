@@ -6,9 +6,9 @@
   float:right;
 }
 
-.header{
-  text-align: center;
-}
+// .header{
+//   //text-align: center;
+// }
 
 #artistList{
   display: none;
@@ -34,4 +34,8 @@ a:visited{
 
 .example-spacer{
   flex: 1 1 auto;
+}
+
+mat-toolbar{
+  border-radius:5px;
 }

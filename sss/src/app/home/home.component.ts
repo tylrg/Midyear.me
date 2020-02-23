@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { AuthorizeService } from '../authorize';
 import { TestService } from '../test.service';
+import { MatSnackBar } from '@angular/material/snack-bar'
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ import { TestService } from '../test.service';
 export class HomeComponent implements OnInit {
   ngOnInit() {
       this.document.getElementById("logout").style.display = "none";
-      console.log("SPOTIFY STATS SITE VERSION 0.0.73");
+      console.log("SPOTIFY STATS SITE VERSION 0.0.81");
       this.type="artists";
       this.time="short_term";
       this.findHome();
@@ -108,6 +109,11 @@ export class HomeComponent implements OnInit {
 
   //change the values for paramters
   //#region Time and other params
+  // openSnackBar(message: string, action:string){
+  //   this._snackBar.open(message,action,{
+  //     duration: 1000,
+  //   });
+  // }
   swapType(){
     if(this.type==="artists"){this.type="tracks";}
     else{this.type="artists";}
