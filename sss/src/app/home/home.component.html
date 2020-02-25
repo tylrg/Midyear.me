@@ -10,7 +10,7 @@
 </div>
 
 <div class="header">
-    <a href="http://www.midyear.me/"><h4><h1>MIDYEAR.me</h1></h4></a>
+    <a href="http://www.midyear.me/"><h1>MIDYEAR.me</h1></a>
 </div>
 <br><br>
 <mat-toolbar>
@@ -35,6 +35,8 @@
 
 <div id="artistList">
     <h2>Your Top Artists</h2>
+    <h3>{{term_string}}</h3>
+    <br>
     <ul *ngFor="let element of artists">
         <!-- <h6>{{element.name}}</h6>
         <a href={{element.link}} target="_blank"><img class="images" src={{element.image.url}} /></a>
@@ -46,6 +48,8 @@
 
 <div id="trackList">
     <h2>Your Top Tracks</h2>
+    <h3>{{term_string}}</h3>
+    <br>
     <ul id="tracks" *ngFor="let element of tracks">
         <!-- <h5>{{element.name}}</h5>
         <h6>{{element.artists}}</h6>

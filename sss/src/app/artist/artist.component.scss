@@ -3,10 +3,24 @@
 }
 
 .example-header-image {
-  //background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
+  color: #01001C;
+  font-family: 'Exo 2', ;
 }
 
+mat-card-content{
+  color: #01001C;
+  font-family: 'Exo 2', ;
+}
+
+mat-card-title{
+  color: #01001C;
+  font-family: 'Exo 2', ;
+}
+
+mat-card-subtitle{
+  font-family: 'Exo 2', ;
+}
 img{
   border-radius: 2px;
 }

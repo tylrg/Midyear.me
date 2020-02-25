@@ -4,11 +4,32 @@
 
 .log{
   float:right;
+  color: #9197AE;
+  margin-right: 2.5%;
 }
 
-// .header{
-//   //text-align: center;
-// }
+.header{
+  font-family: 'Exo 2', ;
+  color: #228CDB;
+  margin-left: 2.5%;
+}
+h1{
+  font-family: 'Exo 2', ;
+  color: #228CDB;
+  font-size: 2.9em;
+}
+h2{
+  color: #9197AE;
+  margin-left: 2.5%;
+  font-family: 'Exo 2', ;
+  font-size: 2em;
+}
+h3{
+  color: #EFF6EE;
+  font-family: 'Exo 2', ;
+  margin-left: 5%;
+  font-size: 1.2em;
+}
 
 #artistList{
   display: none;
@@ -19,16 +40,13 @@
   margin-right: 10%;
   align-content: center;
 }
-// #tracks{
-  
-// }
 
 a:link{
-  color: black;
+  color: #9197AE;
   text-decoration: none;
 }
 a:visited{
-  color: black;
+  color: #9197AE;
   text-decoration: none;
 }
 
@@ -38,4 +56,7 @@ a:visited{
 
 mat-toolbar{
   border-radius:5px;
+  width: 95%;
+  margin-left:2.5%;
+  background-color: #EFF6EE;
 }

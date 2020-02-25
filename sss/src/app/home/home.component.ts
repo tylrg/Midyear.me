@@ -12,9 +12,10 @@ import { MatSnackBar } from '@angular/material/snack-bar'
 export class HomeComponent implements OnInit {
   ngOnInit() {
       this.document.getElementById("logout").style.display = "none";
-      console.log("SPOTIFY STATS SITE VERSION 0.0.81");
+      console.log("SPOTIFY STATS SITE VERSION 0.0.92");
       this.type="artists";
       this.time="short_term";
+      this.updateTerm();
       this.findHome();
     }
   constructor(@Inject(DOCUMENT) private document: Document, private top: AuthorizeService, private test: TestService) { }
@@ -27,6 +28,7 @@ export class HomeComponent implements OnInit {
   time: string;
   access_token: string;
   refresh_token: string;
+  term_string: string;
   
   findHome(){
     let url = this.document.location.href;
@@ -125,24 +127,41 @@ export class HomeComponent implements OnInit {
   setShort(){
     this.time="short_term";
     console.log(this.time);
+    this.updateTerm();
     this.updateTime();
   }
   setMedium(){
     this.time="medium_term";
     console.log(this.time);
+    this.updateTerm();
     this.updateTime();
   }
   setLong(){
     this.time="long_term";
     console.log(this.time);
+    this.updateTerm();
     this.updateTime();
   }
   updateTime(){
     if(this.type==="artists"){this.getArtists();}
     else if(this.type="tracks"){this.getTracks();}
   }
+  updateTerm(){
+    switch(this.time){
+      case "short_term":
+        this.term_string = "Short Term (4 weeks)";
+        break;
+      case "medium_term":
+        this.term_string = "Medium Term (6 months)";
+        break;
+      case "long_term":
+        this.term_string = "All Time";
+        break;
+    }
+  }
   clear(){
     console.clear();
   }
+
   //#endregion
 }
