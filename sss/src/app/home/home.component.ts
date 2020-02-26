@@ -12,7 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar'
 export class HomeComponent implements OnInit {
   ngOnInit() {
       this.document.getElementById("logout").style.display = "none";
-      console.log("SPOTIFY STATS SITE VERSION 0.0.92");
+      console.log("SPOTIFY STATS SITE VERSION 0.0.93");
       this.type="artists";
       this.time="short_term";
       this.updateTerm();
@@ -68,6 +68,7 @@ export class HomeComponent implements OnInit {
   }
 
   getArtists(){
+    if(this.code===""){return;}
     this.artists = [];
     this.type="artists";
     this.document.getElementById("trackList").style.display = "none";
@@ -87,6 +88,7 @@ export class HomeComponent implements OnInit {
   }
 
   getTracks(){
+    if (this.code === "") { return; }
     this.tracks = [];
     this.type="tracks";
     this.document.getElementById("artistList").style.display = "none";
