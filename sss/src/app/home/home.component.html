@@ -13,6 +13,11 @@
     <a href="http://www.midyear.me/"><h1>MIDYEAR.me</h1></a>
 </div>
 <br><br>
+
+<div id = "sidbar">
+
+</div>
+<!-- <mat-progress-bar id="progBar" [mode]="indeterminate" [color]="primary" ></mat-progress-bar> -->
 <mat-toolbar>
     <mat-toolbar-row>
         <mat-button-toggle-group value="artists">
@@ -21,12 +26,9 @@
         </mat-button-toggle-group>
         <span class="example-spacer"></span>
         <mat-button-toggle-group value="short">
-            <mat-button-toggle value="short" mat-raised-button (click)="setShort()"><i class="material-icons">arrow_right</i>
-            </mat-button-toggle>
-            <mat-button-toggle mat-raised-button (click)="setMedium()"><i class="material-icons">chevron_right</i>
-            </mat-button-toggle>
-            <mat-button-toggle mat-raised-button (click)="setLong()"><i class="material-icons">double_arrow</i>
-            </mat-button-toggle>
+            <mat-button-toggle value="short" mat-raised-button (click)="setShort()"><i class="material-icons">arrow_right</i></mat-button-toggle>
+            <mat-button-toggle mat-raised-button (click)="setMedium()"><i class="material-icons">chevron_right</i></mat-button-toggle>
+            <mat-button-toggle mat-raised-button (click)="setLong()"><i class="material-icons">double_arrow</i></mat-button-toggle>
         </mat-button-toggle-group>
     </mat-toolbar-row>
 </mat-toolbar>

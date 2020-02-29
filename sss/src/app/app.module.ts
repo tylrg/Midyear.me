@@ -12,6 +12,7 @@ import {MatButtonModule} from '@angular/material/button'
 import {MatDividerModule} from '@angular/material/divider'
 import {MatButtonToggleModule} from '@angular/material/button-toggle'
 import {MatCardModule} from '@angular/material/card'
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 
@@ -36,6 +37,7 @@ import { ArtistComponent } from './artist/artist.component';
     MatDividerModule,
     MatButtonToggleModule,
     MatCardModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
