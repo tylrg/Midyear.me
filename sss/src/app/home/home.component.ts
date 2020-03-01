@@ -15,7 +15,7 @@ export interface DialogData {
 export class HomeComponent implements OnInit {
   ngOnInit() {
       this.document.getElementById("logout").style.display = "none";
-      console.log("SPOTIFY STATS SITE VERSION 0.1.01");
+      console.log("SPOTIFY STATS SITE VERSION 0.1.06");
       this.type="artists";
       this.time="short_term";
       this.updateTerm();
@@ -114,7 +114,7 @@ export class HomeComponent implements OnInit {
   }
 
   openHelpDialog(): void {
-    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+    const dialogRef = this.dialog.open(HelpDialog, {
       width: '300px',
     });
 
@@ -197,8 +197,8 @@ export class DialogOverviewExampleDialog {
   }
 }
 @Component({
-  selector: 'dialog-overview-example-dialog',
-  templateUrl: 'dialog.html',
+  selector: 'help-dialog',
+  templateUrl: 'help.html',
 })
 export class HelpDialog {
 
