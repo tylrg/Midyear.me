@@ -1,12 +1,16 @@
 <div id="login" class="log">
     <a href="https://accounts.spotify.com/authorize?client_id=f2143b027e744a7eb3dabfee5183de1e&response_type=code&redirect_uri=http://www.midyear.me&scope=user-top-read"><i class="material-icons">person</i></a>
     <br><br>
-    <i class="material-icons">help</i>
+    <i class="material-icons" (click)="openHelpDialog()">help</i>
 </div>
 <div id="logout" class="log">
-    <i class="material-icons">exit_to_app</i>
+    <a href="http://www.midyear.me"><i class="material-icons">exit_to_app</i></a>
     <br><br>
-    <i class="material-icons">help</i>
+    <i class="material-icons" (click)="openDialog()">help</i>
+    <br><br>
+    <i id="typeIcon" class="material-icons" (click)="swapType()">record_voice_over</i>
+    <br><br>
+    <i id="timeIcon" class="material-icons" (click)="toggleTime()">arrow_right</i>
 </div>
 
 <div class="header">
@@ -14,11 +18,8 @@
 </div>
 <br><br>
 
-<div id = "sidbar">
-
-</div>
 <!-- <mat-progress-bar id="progBar" [mode]="indeterminate" [color]="primary" ></mat-progress-bar> -->
-<mat-toolbar>
+<!-- <mat-toolbar>
     <mat-toolbar-row>
         <mat-button-toggle-group value="artists">
             <mat-button-toggle value="artists" mat-raised-button (click)="getArtists()"><i class="material-icons">people</i></mat-button-toggle>
@@ -31,7 +32,7 @@
             <mat-button-toggle mat-raised-button (click)="setLong()"><i class="material-icons">double_arrow</i></mat-button-toggle>
         </mat-button-toggle-group>
     </mat-toolbar-row>
-</mat-toolbar>
+</mat-toolbar> -->
 
 <br><br><br>
 
@@ -59,7 +60,6 @@
         <a href={{element.link}} target="_blank"><img class="images" src={{element.albumImage.url}} /></a>
         <h6>Popularity: {{element.popularity}}</h6> -->
         <app-track [number]="element.number" [name]="element.name" [artist]="element.artists" [albumName]="element.albumName" [popularity]="element.popularity" [link]="element.link" [albumImage]="element.albumImage.url"></app-track>
-        <!-- <mat-divider></mat-divider> -->
     </ul>
 </div>
 

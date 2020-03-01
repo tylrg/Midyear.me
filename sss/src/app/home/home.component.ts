@@ -2,7 +2,10 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { AuthorizeService } from '../authorize';
 import { TestService } from '../test.service';
-import { MatSnackBar } from '@angular/material/snack-bar'
+import { MatDialog,MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+export interface DialogData {
+}
 
 @Component({
   selector: 'app-home',
@@ -12,17 +15,16 @@ import { MatSnackBar } from '@angular/material/snack-bar'
 export class HomeComponent implements OnInit {
   ngOnInit() {
       this.document.getElementById("logout").style.display = "none";
-      console.log("SPOTIFY STATS SITE VERSION 0.0.93");
+      console.log("SPOTIFY STATS SITE VERSION 0.1.01");
       this.type="artists";
       this.time="short_term";
       this.updateTerm();
       this.findHome();
     }
-  constructor(@Inject(DOCUMENT) private document: Document, private top: AuthorizeService, private test: TestService) { }
+  constructor(@Inject(DOCUMENT) private document: Document, private top: AuthorizeService, private test: TestService, public dialog: MatDialog) { }
 
   artists = []; 
   tracks = [];
-
   code: string;
   type: string;
   time: string;
@@ -30,6 +32,7 @@ export class HomeComponent implements OnInit {
   refresh_token: string;
   term_string: string;
   
+  //#region HTTP REQUESTS
   findHome(){
     let url = this.document.location.href;
     let index = url.indexOf("?code=");
@@ -45,17 +48,6 @@ export class HomeComponent implements OnInit {
     this.document.getElementById("logout").style.display = "block";
     this.testGetToken();
   }
-
-  postAndLook(){
-    this.top.printCode();
-  }
-
-  testOwnPost(){
-    this.test.boomerang(this.code).subscribe(res =>{
-      console.log(res);
-    });
-  }
-
   testGetToken(){
     this.test.getToken(this.code).subscribe(res =>{
       let rString = JSON.stringify(res);
@@ -64,9 +56,9 @@ export class HomeComponent implements OnInit {
       this.refresh_token = returnedValue.refresh_token;
       console.log("Access Token: "+this.access_token);
       console.log("Refresh Token: "+this.refresh_token);
+      this.getArtists();
     });
   }
-
   getArtists(){
     if(this.code===""){return;}
     this.artists = [];
@@ -86,7 +78,6 @@ export class HomeComponent implements OnInit {
     });
     this.document.getElementById("artistList").style.display = "block";
   }
-
   getTracks(){
     if (this.code === "") { return; }
     this.tracks = [];
@@ -109,40 +100,46 @@ export class HomeComponent implements OnInit {
     this.document.getElementById("trackList").style.display = "block";
     
   }
+  //#endregion
 
+  //#region Dialog
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      width: '300px',
+    });
 
-  //change the values for paramters
-  //#region Time and other params
-  // openSnackBar(message: string, action:string){
-  //   this._snackBar.open(message,action,{
-  //     duration: 1000,
-  //   });
-  // }
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+  openHelpDialog(): void {
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      width: '300px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+  //#endregion
+
+  //#region Parameter help
   swapType(){
-    if(this.type==="artists"){this.type="tracks";}
-    else{this.type="artists";}
+    if(this.type==="artists"){
+      this.type="tracks";
+      this.document.getElementById("typeIcon").innerHTML = "music_note";
+      this.getTracks();
+    }
+    else{
+      this.type="artists";
+      this.document.getElementById("typeIcon").innerHTML = "record_voice_over";
+      this.getArtists();
+    }
     console.log(this.type);
   }
   numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
-  setShort(){
-    this.time="short_term";
-    console.log(this.time);
-    this.updateTerm();
-    this.updateTime();
-  }
-  setMedium(){
-    this.time="medium_term";
-    console.log(this.time);
-    this.updateTerm();
-    this.updateTime();
-  }
-  setLong(){
-    this.time="long_term";
-    console.log(this.time);
-    this.updateTerm();
-    this.updateTime();
   }
   updateTime(){
     if(this.type==="artists"){this.getArtists();}
@@ -152,18 +149,65 @@ export class HomeComponent implements OnInit {
     switch(this.time){
       case "short_term":
         this.term_string = "Short Term (4 weeks)";
+        this.document.getElementById("timeIcon").innerHTML = "arrow_right";
         break;
       case "medium_term":
         this.term_string = "Medium Term (6 months)";
+        this.document.getElementById("timeIcon").innerHTML = "chevron_right";
         break;
       case "long_term":
         this.term_string = "All Time";
+        this.document.getElementById("timeIcon").innerHTML = "double_arrow";
         break;
     }
   }
-  clear(){
-    console.clear();
+  toggleTime(){
+    switch (this.time) {
+      case "short_term":
+        this.time = "medium_term";
+        break;
+      case "medium_term":
+        this.time = "long_term";
+        break;
+      case "long_term":
+        this.time = "short_term";
+        break;
+    }
+    console.log(this.time);
+    this.updateTerm();
+    this.updateTime();
   }
-
   //#endregion
 }
+
+
+//#region Dialogs
+@Component({
+  selector: 'dialog-overview-example-dialog',
+  templateUrl: 'dialog.html',
+})
+export class DialogOverviewExampleDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+@Component({
+  selector: 'dialog-overview-example-dialog',
+  templateUrl: 'dialog.html',
+})
+export class HelpDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<HelpDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+//#endregion

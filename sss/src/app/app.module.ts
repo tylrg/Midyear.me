@@ -5,7 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent, HelpDialog } from './home/home.component';
+import {DialogOverviewExampleDialog} from './home/home.component'
 
 import {MatToolbarModule} from '@angular/material/toolbar'
 import {MatButtonModule} from '@angular/material/button'
@@ -13,6 +14,7 @@ import {MatDividerModule} from '@angular/material/divider'
 import {MatButtonToggleModule} from '@angular/material/button-toggle'
 import {MatCardModule} from '@angular/material/card'
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatDialog, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -25,7 +27,9 @@ import { ArtistComponent } from './artist/artist.component';
     AppComponent,
     HomeComponent,
     TrackComponent,
-    ArtistComponent
+    ArtistComponent,
+    DialogOverviewExampleDialog,
+    HelpDialog
   ],
   imports: [
     BrowserModule,
@@ -37,8 +41,10 @@ import { ArtistComponent } from './artist/artist.component';
     MatDividerModule,
     MatButtonToggleModule,
     MatCardModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatDialogModule,
   ],
+  entryComponents: [DialogOverviewExampleDialog,HelpDialog],
   providers: [],
   bootstrap: [AppComponent]
 })
