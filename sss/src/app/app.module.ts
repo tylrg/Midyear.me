@@ -15,6 +15,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle'
 import {MatCardModule} from '@angular/material/card'
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDialog, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 
 
@@ -43,6 +45,7 @@ import { ArtistComponent } from './artist/artist.component';
     MatCardModule,
     MatProgressBarModule,
     MatDialogModule,
+    MatProgressSpinnerModule
   ],
   entryComponents: [DialogOverviewExampleDialog,HelpDialog],
   providers: [],

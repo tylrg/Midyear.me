@@ -22,6 +22,11 @@
   color: #EFF6EE;
 }
 
+#loading{
+  display: none;
+  margin-left: 37%;
+}
+
 .header{
   font-family: 'Exo 2', ;
   color: #228CDB;
@@ -46,19 +51,12 @@ h3{
   margin-top: -10px;
 }
 
-#artistList{
+#artistList,#trackList{
   display: none;
   margin-right: 10%;
   align-content: center;
   margin-top: -125px;
 }
-#trackList{
-  display: none;
-  margin-right: 10%;
-  align-content: center;
-  margin-top: -125px;
-}
-
 a:link{
   color: #9197AE;
   text-decoration: none;
@@ -66,15 +64,4 @@ a:link{
 a:visited{
   color: #9197AE;
   text-decoration: none;
-}
-
-.example-spacer{
-  flex: 1 1 auto;
-}
-
-mat-toolbar{
-  border-radius:5px;
-  width: 95%;
-  margin-left:2.5%;
-  background-color: #EFF6EE;
 }

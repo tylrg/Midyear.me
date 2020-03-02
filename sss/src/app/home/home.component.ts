@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { AuthorizeService } from '../authorize';
 import { TestService } from '../test.service';
 import { MatDialog,MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
@@ -15,13 +14,13 @@ export interface DialogData {
 export class HomeComponent implements OnInit {
   ngOnInit() {
       this.document.getElementById("logout").style.display = "none";
-      console.log("SPOTIFY STATS SITE VERSION 0.1.09");
+      console.log("SPOTIFY STATS SITE VERSION 0.1.15");
       this.type="artists";
       this.time="short_term";
       this.updateTerm();
       this.findHome();
     }
-  constructor(@Inject(DOCUMENT) private document: Document, private top: AuthorizeService, private test: TestService, public dialog: MatDialog) { }
+  constructor(@Inject(DOCUMENT) private document: Document,private test: TestService, public dialog: MatDialog) { }
 
   artists = []; 
   tracks = [];
@@ -38,12 +37,12 @@ export class HomeComponent implements OnInit {
     let index = url.indexOf("?code=");
     if(index===-1){
       this.code="";
+      this.document.getElementById("loading").style.display = "none";
       console.log(this.code);
       return;
     }
     index=index+6;
     this.code = url.substring(index);
-    this.top.setCode(this.code);
     this.document.getElementById("login").style.display = "none";
     this.document.getElementById("logout").style.display = "block";
     this.testGetToken();
@@ -61,6 +60,7 @@ export class HomeComponent implements OnInit {
   }
   getArtists(){
     if(this.code===""){return;}
+    this.document.getElementById("loading").style.display = "block";
     this.artists = [];
     this.type="artists";
     this.document.getElementById("trackList").style.display = "none";
@@ -75,11 +75,14 @@ export class HomeComponent implements OnInit {
         i++;
       }
       console.log(this.artists);
+      this.document.getElementById("loading").style.display = "none";
+      this.document.getElementById("artistList").style.display = "block";
     });
-    this.document.getElementById("artistList").style.display = "block";
+    
   }
   getTracks(){
     if (this.code === "") { return; }
+    this.document.getElementById("loading").style.display = "block";
     this.tracks = [];
     this.type="tracks";
     this.document.getElementById("artistList").style.display = "none";
@@ -96,8 +99,9 @@ export class HomeComponent implements OnInit {
         //console.log(x);
       }
       console.log(this.tracks);
+      this.document.getElementById("loading").style.display = "none";
+      this.document.getElementById("trackList").style.display = "block";
     });
-    this.document.getElementById("trackList").style.display = "block";
     
   }
   //#endregion
@@ -166,6 +170,8 @@ export class HomeComponent implements OnInit {
     }
   }
   toggleTime(){
+    this.document.getElementById("artistList").style.display = "none";
+    this.document.getElementById("trackList").style.display = "none";
     switch (this.time) {
       case "short_term":
         this.time = "medium_term";
@@ -178,8 +184,8 @@ export class HomeComponent implements OnInit {
         break;
     }
     console.log(this.time);
-    this.updateTerm();
     this.updateTime();
+    this.updateTerm();
   }
   //#endregion
 }
