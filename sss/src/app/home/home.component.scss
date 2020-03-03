@@ -18,9 +18,90 @@
   margin-top: -120px;
 }
 
-#typeIcon,#timeIcon{
-  color: #C5C6C7;
+.logIcon{
+  -webkit-animation: fadein 1.5s linear forwards;
+    animation: fadein 1.5s linear  forwards;
+
+  @-webkit-keyframes fadein {
+    0% { opacity: 0; }
+    50% {opacity: .5}
+    100% { opacity: 1; }
+  }
+
+  @keyframes fadein {
+    0% { opacity: 0; }
+    50% {opacity: .5}
+    100% { opacity: 1; }
+  }
 }
+.helpIcon{
+  -webkit-animation: fadein 1.75s linear forwards;
+    animation: fadein 1.75s linear  forwards;
+
+  @-webkit-keyframes fadein {
+    0% { opacity: 0; }
+    50% {opacity: .5}
+    100% { opacity: 1; }
+  }
+
+  @keyframes fadein {
+    0% { opacity: 0; }
+    50% {opacity: .5}
+    100% { opacity: 1; }
+  }
+}
+.codeIcon{
+  -webkit-animation: fadein 1.85s linear forwards;
+    animation: fadein 1.85s linear  forwards;
+
+  @-webkit-keyframes fadein {
+    0% { opacity: 0; }
+    50% {opacity: .5}
+    100% { opacity: 1; }
+  }
+
+  @keyframes fadein {
+    0% { opacity: 0; }
+    50% {opacity: .5}
+    100% { opacity: 1; }
+  }
+}
+
+#typeIcon{
+  color: #C5C6C7;
+  -webkit-animation: fadein 1.85s linear forwards;
+    animation: fadein 1.85s linear  forwards;
+
+  @-webkit-keyframes fadein {
+    0% { opacity: 0; }
+    50% {opacity: .5}
+    100% { opacity: 1; }
+  }
+
+  @keyframes fadein {
+    0% { opacity: 0; }
+    50% {opacity: .5}
+    100% { opacity: 1; }
+  }
+}
+#timeIcon{
+  color: #C5C6C7;
+  -webkit-animation: fadein 1.95s linear forwards;
+    animation: fadein 1.95s linear  forwards;
+
+  @-webkit-keyframes fadein {
+    0% { opacity: 0; }
+    50% {opacity: .5}
+    100% { opacity: 1; }
+  }
+
+  @keyframes fadein {
+    0% { opacity: 0; }
+    50% {opacity: .5}
+    100% { opacity: 1; }
+  }
+}
+
 
 #loading{
   display: none;
@@ -39,14 +120,15 @@ h1{
 }
 h2{
   color: #C5C6C7;
+  color: #FCB97D;
   margin-left: 2.5%;
   font-family: 'Exo 2', ;
   font-size: 2em;
 }
 h3{
-  color: #EFF6EE;
+  color: #C5C6C7;
   font-family: 'Exo 2', ;
-  margin-left: 5%;
+  margin-left: 2.5%;
   font-size: 1.2em;
   margin-top: -10px;
 }
@@ -65,3 +147,4 @@ a:visited{
   color: #C5C6C7;
   text-decoration: none;
 }
+
