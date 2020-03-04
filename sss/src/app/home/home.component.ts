@@ -14,7 +14,7 @@ export interface DialogData {
 export class HomeComponent implements OnInit {
   ngOnInit() {
       this.document.getElementById("logout").style.display = "none";
-      console.log("SPOTIFY STATS SITE VERSION 0.1.23");
+      console.log("SPOTIFY STATS SITE VERSION 0.1.27");
       this.type="artists";
       this.time="short_term";
       this.updateTerm();
@@ -45,6 +45,7 @@ export class HomeComponent implements OnInit {
     this.code = url.substring(index);
     this.document.getElementById("login").style.display = "none";
     this.document.getElementById("logout").style.display = "block";
+    this.document.getElementById("loading").style.display = "block";
     this.testGetToken();
   }
   testGetToken(){
@@ -56,6 +57,7 @@ export class HomeComponent implements OnInit {
       console.log("Access Token: "+this.access_token);
       console.log("Refresh Token: "+this.refresh_token);
       this.getArtists();
+      this.document.getElementById("loading").style.display = "none";
     });
   }
   getArtists(){
