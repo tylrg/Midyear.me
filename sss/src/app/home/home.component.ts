@@ -14,7 +14,7 @@ export interface DialogData {
 export class HomeComponent implements OnInit {
   ngOnInit() {
       this.document.getElementById("logout").style.display = "none";
-      console.log("SPOTIFY STATS SITE VERSION 0.1.43");
+      console.log("SPOTIFY STATS SITE VERSION 0.1.51");
       this.type="artists";
       this.time="short_term";
       this.updateTerm();
@@ -228,8 +228,10 @@ export class HomeComponent implements OnInit {
   }
   uppperCasify(){
     for (let i = 0; i < 5; i++) {
-      this.topFive[i].artist = this.topFive[i].artist.toUppercase();
       console.log(this.topFive[i]);
+      let place = this.topFive[i].name;
+      place = place.toUpperCase();
+      this.topFive[i].name = place;
     }
   }
   

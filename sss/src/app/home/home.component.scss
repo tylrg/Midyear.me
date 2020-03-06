@@ -1,23 +1,20 @@
 .images{
   max-width: 160px;
 }
-
 .log{
   float:right;
   color: #C5C6C7;
   margin-right: 2.5%;
+  z-index: 1;
 }
-
 .sidebar{
   float:right;
   color: #C5C6C7;
   margin-right: 2.5%;
 }
-
 #trackList,#artistList{
   margin-top: -120px;
 }
-
 .logIcon{
   -webkit-animation: fadein 1.5s ease-in forwards;
     animation: fadein 1.5s ease-in  forwards;
@@ -78,7 +75,6 @@
     100% { opacity: 1; }
   }
 }
-
 #typeIcon{
   color: #C5C6C7;
   -webkit-animation: fadein 1.85s ease-in forwards;
@@ -142,13 +138,10 @@
     100% { opacity: 1; }
   }
 }
-
-
 #loading{
   display: none;
   margin-left: 37%;
 }
-
 #screenshot{
   text-align: center;
   display: none;
@@ -176,7 +169,7 @@
 #topImage{
   max-width: -webkit-fill-available;
   border-radius: 6px;
-  margin: 0;
+  margin: 15px;
 }
 #topList{
   color: #FCB97D;
@@ -184,16 +177,36 @@
   font-family: 'Exo 2', ;
   font-style: oblique;
 }
-
 .header{
   font-family: 'Exo 2', ;
   color: #66FCF1;
   margin-left: 2.5%;
+  z-index: -1;
+  // -webkit-animation: fadein 1.75s ease-in forwards;
+  //   animation: fadein 1.75s ease-in  forwards;
+
+  // @-webkit-keyframes fadein {
+  //   0% { opacity: 0; }
+  //   50% {opacity: .25}
+  //   75% {opacity: .50}
+  //   90% {opacity: .75}
+  //   100% { opacity: 1; }
+  // }
+
+  // @keyframes fadein {
+  //   0% { opacity: 0; }
+  //   50% {opacity: .25}
+  //   75% {opacity: .50}
+  //   90% {opacity: .75}
+  //   100% { opacity: 1; }
+  // }
 }
 h1{
   font-family: 'Exo 2', ;
   color: #66FCF1;
   font-size: 2.9em;
+    -webkit-animation: fadein 1.75s ease-in forwards;
+    animation: fadein 1.75s ease-in  forwards;
 }
 h2{
   color: #FCB97D;
@@ -208,30 +221,11 @@ h3{
   font-size: 1.2em;
   margin-top: -10px;
 }
-
 #artistList,#trackList{
   display: none;
   margin-right: 10%;
   align-content: center;
   margin-top: -125px;
-    -webkit-animation: fadein 1.5s ease-in forwards;
-    animation: fadein 1.5s ease-in  forwards;
-
-  @-webkit-keyframes fadein {
-    0% { opacity: 0; }
-    50% {opacity: .25}
-    75% {opacity: .50}
-    90% {opacity: .75}
-    100% { opacity: 1; }
-  }
-
-  @keyframes fadein {
-    0% { opacity: 0; }
-    50% {opacity: .25}
-    75% {opacity: .50}
-    90% {opacity: .75}
-    100% { opacity: 1; }
-  }
 }
 a:link{
   color: #C5C6C7;
