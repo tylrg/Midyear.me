@@ -14,7 +14,7 @@ export interface DialogData {
 export class HomeComponent implements OnInit {
   ngOnInit() {
       this.document.getElementById("logout").style.display = "none";
-      console.log("SPOTIFY STATS SITE VERSION 0.1.51");
+      console.log("SPOTIFY STATS SITE VERSION 0.1.58");
       this.type="artists";
       this.time="short_term";
       this.updateTerm();
@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit {
     if(index===-1){
       this.code="";
       this.document.getElementById("loading").style.display = "none";
-      console.log(this.code);
+      //console.log(this.code);
       return;
     }
     index=index+6;
@@ -56,8 +56,8 @@ export class HomeComponent implements OnInit {
       let returnedValue = JSON.parse(rString);
       this.access_token = returnedValue.access_token;
       this.refresh_token = returnedValue.refresh_token;
-      console.log("Access Token: "+this.access_token);
-      console.log("Refresh Token: "+this.refresh_token);
+      //console.log("Access Token: "+this.access_token);
+      //console.log("Refresh Token: "+this.refresh_token);
       this.getArtists();
       this.document.getElementById("loading").style.display = "none";
     });
@@ -78,7 +78,7 @@ export class HomeComponent implements OnInit {
         this.artists.push(artist);
         i++;
       }
-      console.log(this.artists);
+      //console.log(this.artists);
       this.document.getElementById("loading").style.display = "none";
       this.document.getElementById("artistList").style.display = "block";
     });
@@ -102,7 +102,7 @@ export class HomeComponent implements OnInit {
         i++;
         //console.log(x);
       }
-      console.log(this.tracks);
+      //console.log(this.tracks);
       this.document.getElementById("loading").style.display = "none";
       this.document.getElementById("trackList").style.display = "block";
     });
@@ -212,7 +212,6 @@ export class HomeComponent implements OnInit {
       this.document.getElementById("mainTitle").style.display = "none";
       this.document.getElementById("logout").style.display = "none";
     }
-    this.uppperCasify();
     this.document.getElementById("screenshot").style.display = "block";
   }
   showHome(){
@@ -225,14 +224,6 @@ export class HomeComponent implements OnInit {
     }
     this.document.getElementById("mainTitle").style.display = "block";
     this.document.getElementById("logout").style.display = "block";
-  }
-  uppperCasify(){
-    for (let i = 0; i < 5; i++) {
-      console.log(this.topFive[i]);
-      let place = this.topFive[i].name;
-      place = place.toUpperCase();
-      this.topFive[i].name = place;
-    }
   }
   
   //#endregion
