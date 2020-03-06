@@ -109,11 +109,19 @@
 }
 
 #screenshot{
-  //margin-right: 10%;
   text-align: center;
+  display: none;
+  margin-top:  -130px;
 }
 #topImage{
   max-width: 270px;
+  border-radius: 2px;
+  margin: 0;
+}
+#topList{
+  color: #C5C6C7;
+  text-align: left;
+  font-family: 'Exo 2', ;
 }
 
 .header{

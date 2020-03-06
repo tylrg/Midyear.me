@@ -14,7 +14,7 @@ export interface DialogData {
 export class HomeComponent implements OnInit {
   ngOnInit() {
       this.document.getElementById("logout").style.display = "none";
-      console.log("SPOTIFY STATS SITE VERSION 0.1.31");
+      console.log("SPOTIFY STATS SITE VERSION 0.1.37");
       this.type="artists";
       this.time="short_term";
       this.updateTerm();
@@ -24,7 +24,8 @@ export class HomeComponent implements OnInit {
 
   artists = []; 
   tracks = [];
-  topFive = [{ "image":"https://i.scdn.co/image/fec51156ed94b7ee30fbd4c7fd29b4a840e7daec"}];
+  topImage ="https://i.scdn.co/image/fec51156ed94b7ee30fbd4c7fd29b4a840e7daec";
+  topFive = [];
   code: string;
   type: string;
   time: string;
@@ -131,7 +132,8 @@ export class HomeComponent implements OnInit {
   }
 
   alertLog(){
-    alert("You have been logged out!");
+    if(this.code===""){return;}
+    else{alert("You have been logged out!");}
   }
   //#endregion
 
@@ -196,16 +198,36 @@ export class HomeComponent implements OnInit {
     if(this.type==="artists"){
       for (i = 0; i < 5; i++){
         this.topFive[i]=this.artists[i];
-        i++;
+        console.log(this.topFive[i]);
+        console.log(this.topFive[i].image.url);
       }
+      this.topImage = this.topFive[0].image.url;
+      this.document.getElementById("artistList").style.display = "none";
+      this.document.getElementById("mainTitle").style.display = "none";
+      this.document.getElementById("logout").style.display = "none";
     }else{
       for (i = 0; i < 5; i++) {
         this.topFive[i] = this.tracks[i];
-        i++;
       }
+      this.topImage = this.topFive[0].albumImage.url;
+      this.document.getElementById("trackList").style.display = "none";
+      this.document.getElementById("mainTitle").style.display = "none";
+      this.document.getElementById("logout").style.display = "none";
     }
-    console.log("Top Five: "+this.topFive);
+    this.document.getElementById("screenshot").style.display = "block";
   }
+  showHome(){
+    this.document.getElementById("screenshot").style.display = "none";
+    if(this.type==="artists"){
+      this.document.getElementById("artistList").style.display = "block";
+    }
+    else{
+      this.document.getElementById("trackList").style.display = "block";
+    }
+    this.document.getElementById("mainTitle").style.display = "block";
+    this.document.getElementById("logout").style.display = "block";
+  }
+  
   //#endregion
 }
 

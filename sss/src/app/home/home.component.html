@@ -6,8 +6,8 @@
     <a class= "codeIcon" href="https://github.com/tylrg/spotify_stats_site" target="_blank"><i class="material-icons">code</i></a>
 </div>
 <div id="logout" class="log">
-    <a class= "logIcon" href="https://www.midyear.me" (click)="alertLog()"><i class="material-icons">exit_to_app</i></a>
-    <br><br>
+    <!-- <a class= "logIcon" href="https://www.midyear.me" (click)="alertLog()"><i class="material-icons">exit_to_app</i></a>
+    <br><br> -->
     <i class="material-icons helpIcon" (click)="openDialog()">help</i>
     <br><br>
     <i id="typeIcon" class="material-icons" (click)="swapType()">record_voice_over</i>
@@ -16,9 +16,12 @@
     <br><br>
     <i class="material-icons" (click)="updateTopFiveShare()">camera_enhance</i>
 </div>
+<div id="back" class="log">
 
-<div class="header">
-    <a href="https://www.midyear.me/"><h1>MIDYEAR.me</h1></a>
+</div>
+
+<div id="mainTitle" class="header">
+    <a href="https://www.midyear.me/" (click)="alertLog()"><h1>MIDYEAR.me</h1></a>
 </div>
 <br><br>
 <br><br><br>
@@ -46,9 +49,13 @@
 
 <br><br>
 
-<div id="screenshot">
-    <mat-card>
-        <img id="topImage" mat-card-image src="{{topFive[0].image}}">
-    </mat-card>
+<div id="screenshot" style="display: none;">
+    <div class="header">
+        <h1 (click) = "showHome()">MIDYEAR.me</h1>
+    </div>
+    <img id="topImage" mat-card-image src="{{topImage}}">
+    <ul id = "topList" *ngFor="let element of topFive">
+        {{element.number}} {{element.name}}
+    </ul>
 </div>
 <br><br>
