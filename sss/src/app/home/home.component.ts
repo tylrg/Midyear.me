@@ -14,7 +14,7 @@ export interface DialogData {
 export class HomeComponent implements OnInit {
   ngOnInit() {
       this.document.getElementById("logout").style.display = "none";
-      console.log("SPOTIFY STATS SITE VERSION 0.1.37");
+      console.log("SPOTIFY STATS SITE VERSION 0.1.43");
       this.type="artists";
       this.time="short_term";
       this.updateTerm();
@@ -198,8 +198,6 @@ export class HomeComponent implements OnInit {
     if(this.type==="artists"){
       for (i = 0; i < 5; i++){
         this.topFive[i]=this.artists[i];
-        console.log(this.topFive[i]);
-        console.log(this.topFive[i].image.url);
       }
       this.topImage = this.topFive[0].image.url;
       this.document.getElementById("artistList").style.display = "none";
@@ -214,6 +212,7 @@ export class HomeComponent implements OnInit {
       this.document.getElementById("mainTitle").style.display = "none";
       this.document.getElementById("logout").style.display = "none";
     }
+    this.uppperCasify();
     this.document.getElementById("screenshot").style.display = "block";
   }
   showHome(){
@@ -226,6 +225,12 @@ export class HomeComponent implements OnInit {
     }
     this.document.getElementById("mainTitle").style.display = "block";
     this.document.getElementById("logout").style.display = "block";
+  }
+  uppperCasify(){
+    for (let i = 0; i < 5; i++) {
+      this.topFive[i].artist = this.topFive[i].artist.toUppercase();
+      console.log(this.topFive[i]);
+    }
   }
   
   //#endregion

@@ -19,85 +19,126 @@
 }
 
 .logIcon{
-  -webkit-animation: fadein 1.5s linear forwards;
-    animation: fadein 1.5s linear  forwards;
+  -webkit-animation: fadein 1.5s ease-in forwards;
+    animation: fadein 1.5s ease-in  forwards;
 
   @-webkit-keyframes fadein {
     0% { opacity: 0; }
-    50% {opacity: .5}
+    50% {opacity: .25}
+    75% {opacity: .50}
+    90% {opacity: .75}
     100% { opacity: 1; }
   }
 
   @keyframes fadein {
     0% { opacity: 0; }
-    50% {opacity: .5}
+    50% {opacity: .25}
+    75% {opacity: .50}
+    90% {opacity: .75}
     100% { opacity: 1; }
   }
 }
 .helpIcon{
-  -webkit-animation: fadein 1.75s linear forwards;
-    animation: fadein 1.75s linear  forwards;
+  -webkit-animation: fadein 1.75s ease-in forwards;
+    animation: fadein 1.75s ease-in  forwards;
 
   @-webkit-keyframes fadein {
     0% { opacity: 0; }
-    50% {opacity: .5}
+    50% {opacity: .25}
+    75% {opacity: .50}
+    90% {opacity: .75}
     100% { opacity: 1; }
   }
 
   @keyframes fadein {
     0% { opacity: 0; }
-    50% {opacity: .5}
+    50% {opacity: .25}
+    75% {opacity: .50}
+    90% {opacity: .75}
     100% { opacity: 1; }
   }
 }
 .codeIcon{
-  -webkit-animation: fadein 1.85s linear forwards;
-    animation: fadein 1.85s linear  forwards;
+  -webkit-animation: fadein 1.85s ease-in forwards;
+    animation: fadein 1.85s ease-in  forwards;
 
   @-webkit-keyframes fadein {
     0% { opacity: 0; }
-    50% {opacity: .5}
+    50% {opacity: .25}
+    75% {opacity: .50}
+    90% {opacity: .75}
     100% { opacity: 1; }
   }
 
   @keyframes fadein {
     0% { opacity: 0; }
-    50% {opacity: .5}
+    50% {opacity: .25}
+    75% {opacity: .50}
+    90% {opacity: .75}
     100% { opacity: 1; }
   }
 }
 
 #typeIcon{
   color: #C5C6C7;
-  -webkit-animation: fadein 1.85s linear forwards;
-    animation: fadein 1.85s linear  forwards;
+  -webkit-animation: fadein 1.85s ease-in forwards;
+    animation: fadein 1.85s ease-in  forwards;
 
   @-webkit-keyframes fadein {
     0% { opacity: 0; }
-    50% {opacity: .5}
+    50% {opacity: .25}
+    75% {opacity: .50}
+    90% {opacity: .75}
     100% { opacity: 1; }
   }
 
   @keyframes fadein {
     0% { opacity: 0; }
-    50% {opacity: .5}
+    50% {opacity: .25}
+    75% {opacity: .50}
+    90% {opacity: .75}
     100% { opacity: 1; }
   }
 }
 #timeIcon{
   color: #C5C6C7;
-  -webkit-animation: fadein 1.95s linear forwards;
-    animation: fadein 1.95s linear  forwards;
+  -webkit-animation: fadein 1.95s ease-in forwards;
+    animation: fadein 1.95s ease-in  forwards;
 
   @-webkit-keyframes fadein {
     0% { opacity: 0; }
-    50% {opacity: .5}
+    50% {opacity: .25}
+    75% {opacity: .50}
+    90% {opacity: .75}
     100% { opacity: 1; }
   }
 
   @keyframes fadein {
     0% { opacity: 0; }
-    50% {opacity: .5}
+    50% {opacity: .25}
+    75% {opacity: .50}
+    90% {opacity: .75}
+    100% { opacity: 1; }
+  }
+}
+#shareIcon{
+  color: #C5C6C7;
+  -webkit-animation: fadein 2.00s ease-in forwards;
+    animation: fadein 2.00s ease-in  forwards;
+
+  @-webkit-keyframes fadein {
+    0% { opacity: 0; }
+    50% {opacity: .25}
+    75% {opacity: .50}
+    90% {opacity: .75}
+    100% { opacity: 1; }
+  }
+
+  @keyframes fadein {
+    0% { opacity: 0; }
+    50% {opacity: .25}
+    75% {opacity: .50}
+    90% {opacity: .75}
     100% { opacity: 1; }
   }
 }
@@ -111,17 +152,37 @@
 #screenshot{
   text-align: center;
   display: none;
-  margin-top:  -130px;
+  margin-top:  -155px;
+
+  -webkit-animation: fadein 1.0s ease-in forwards;
+    animation: fadein 1.0s ease-in  forwards;
+
+  @-webkit-keyframes fadein {
+    0% { opacity: 0; }
+    50% {opacity: .25}
+    75% {opacity: .50}
+    90% {opacity: .75}
+    100% { opacity: 1; }
+  }
+
+  @keyframes fadein {
+    0% { opacity: 0; }
+    50% {opacity: .25}
+    75% {opacity: .50}
+    90% {opacity: .75}
+    100% { opacity: 1; }
+  }
 }
 #topImage{
-  max-width: 270px;
-  border-radius: 2px;
+  max-width: -webkit-fill-available;
+  border-radius: 6px;
   margin: 0;
 }
 #topList{
-  color: #C5C6C7;
+  color: #FCB97D;
   text-align: left;
   font-family: 'Exo 2', ;
+  font-style: oblique;
 }
 
 .header{
@@ -135,7 +196,6 @@ h1{
   font-size: 2.9em;
 }
 h2{
-  color: #C5C6C7;
   color: #FCB97D;
   margin-left: 2.5%;
   font-family: 'Exo 2', ;
@@ -154,6 +214,24 @@ h3{
   margin-right: 10%;
   align-content: center;
   margin-top: -125px;
+    -webkit-animation: fadein 1.5s ease-in forwards;
+    animation: fadein 1.5s ease-in  forwards;
+
+  @-webkit-keyframes fadein {
+    0% { opacity: 0; }
+    50% {opacity: .25}
+    75% {opacity: .50}
+    90% {opacity: .75}
+    100% { opacity: 1; }
+  }
+
+  @keyframes fadein {
+    0% { opacity: 0; }
+    50% {opacity: .25}
+    75% {opacity: .50}
+    90% {opacity: .75}
+    100% { opacity: 1; }
+  }
 }
 a:link{
   color: #C5C6C7;
