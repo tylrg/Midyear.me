@@ -13,6 +13,8 @@
     <i id="typeIcon" class="material-icons" (click)="swapType()">record_voice_over</i>
     <br><br>
     <i id="timeIcon" class="material-icons" (click)="toggleTime()">arrow_right</i>
+    <br><br>
+    <i class="material-icons" (click)="updateTopFiveShare()">camera_enhance</i>
 </div>
 
 <div class="header">
@@ -42,5 +44,11 @@
     </ul>
 </div>
 
+<br><br>
 
+<div id="screenshot">
+    <mat-card>
+        <img id="topImage" mat-card-image src="{{topFive[0].image}}">
+    </mat-card>
+</div>
 <br><br>

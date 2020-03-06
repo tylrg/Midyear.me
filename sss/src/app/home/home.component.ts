@@ -14,7 +14,7 @@ export interface DialogData {
 export class HomeComponent implements OnInit {
   ngOnInit() {
       this.document.getElementById("logout").style.display = "none";
-      console.log("SPOTIFY STATS SITE VERSION 0.1.27");
+      console.log("SPOTIFY STATS SITE VERSION 0.1.31");
       this.type="artists";
       this.time="short_term";
       this.updateTerm();
@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
 
   artists = []; 
   tracks = [];
+  topFive = [{ "image":"https://i.scdn.co/image/fec51156ed94b7ee30fbd4c7fd29b4a840e7daec"}];
   code: string;
   type: string;
   time: string;
@@ -188,6 +189,22 @@ export class HomeComponent implements OnInit {
     console.log(this.time);
     this.updateTime();
     this.updateTerm();
+  }
+  updateTopFiveShare(){
+    this.topFive = [];
+    let i;
+    if(this.type==="artists"){
+      for (i = 0; i < 5; i++){
+        this.topFive[i]=this.artists[i];
+        i++;
+      }
+    }else{
+      for (i = 0; i < 5; i++) {
+        this.topFive[i] = this.tracks[i];
+        i++;
+      }
+    }
+    console.log("Top Five: "+this.topFive);
   }
   //#endregion
 }
