@@ -14,7 +14,7 @@ export interface DialogData {
 export class HomeComponent implements OnInit {
   ngOnInit() {
       this.document.getElementById("logout").style.display = "none";
-      console.log("SPOTIFY STATS SITE VERSION 0.1.58");
+      console.log("SPOTIFY STATS SITE VERSION 0.1.60");
       this.type="artists";
       this.time="short_term";
       this.updateTerm();
@@ -117,7 +117,7 @@ export class HomeComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      //console.log('The dialog was closed');
     });
   }
 
@@ -127,7 +127,7 @@ export class HomeComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      //console.log('The dialog was closed');
     });
   }
 
@@ -149,7 +149,7 @@ export class HomeComponent implements OnInit {
       this.document.getElementById("typeIcon").innerHTML = "record_voice_over";
       this.getArtists();
     }
-    console.log(this.type);
+    //console.log(this.type);
   }
   numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -188,7 +188,7 @@ export class HomeComponent implements OnInit {
         this.time = "short_term";
         break;
     }
-    console.log(this.time);
+    //console.log(this.time);
     this.updateTime();
     this.updateTerm();
   }

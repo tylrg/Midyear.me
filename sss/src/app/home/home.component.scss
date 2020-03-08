@@ -167,7 +167,8 @@
   }
 }
 #topImage{
-  max-width: -webkit-fill-available;
+  // max-width: -webkit-fill-available;
+  max-width: 282px;
   border-radius: 6px;
   margin: 15px;
 }
@@ -176,6 +177,7 @@
   text-align: left;
   font-family: 'Exo 2', ;
   font-style: oblique;
+  line-height: 50%;
 }
 .header{
   font-family: 'Exo 2', ;
