@@ -52,10 +52,10 @@
 
 <div id="screenshot" style="display: none;">
     <div class="header">
-        <!-- <h1 (click) = "showHome()">MIDYEAR.me</h1> -->
         <img class="logo scLogo" src="../../assets/Final FIle.png" alt="Midyear.me" (click) = "showHome()">
     </div>
     <img id="topImage" mat-card-image src="{{topImage}}">
+    <h3>{{term_string}}</h3>
     <ul id = "topList" *ngFor="let element of topFive">
         {{element.number}} {{element.name}}
     </ul>
