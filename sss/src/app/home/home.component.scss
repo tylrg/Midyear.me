@@ -246,3 +246,16 @@ a:visited{
 .scLogo{
   padding-top: 8%;
 }
+
+@media screen and (min-width: 600px) {
+  #size_label{
+    display: block;
+    max-width: 600px;
+  }
+}
+@media screen and (max-width: 600px) {
+  #size_label{
+    display: none;
+    max-width: 600px;
+  }
+}
