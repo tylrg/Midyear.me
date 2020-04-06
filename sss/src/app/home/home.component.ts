@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
 
   artists = []; 
   tracks = [];
-  topImage ="https://i.scdn.co/image/fec51156ed94b7ee30fbd4c7fd29b4a840e7daec";
+  topImage ="https://i.scdn.co/image/012ecd119617ac24ab56620ace4b81735b172686";
   topFive = [];
   code: string;
   type: string;
